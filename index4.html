@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: #ffffff;
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<script src="http://threejsplaygnd.brangerbriz.net/js/three.min.js"></script>
+		<script src="http://threejsplaygnd.brangerbriz.net/js/Detector.js"></script>
+		<script>
+
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+			
+			var camera, scene, renderer;
+			var geometry, material, mesh;
+
+			function setup() {
+
+				var W = window.innerWidth, H = window.innerHeight;
+				renderer = new THREE.WebGLRenderer();
+				renderer.setSize( W, H );
+				document.body.appendChild( renderer.domElement );
+
+				camera = new THREE.PerspectiveCamera( 50, W/H, 1, 10000 );
+				camera.position.z = 500;
+
+				scene = new THREE.Scene();
+				
+				
+				// paste your code from the geometryGUI here
+geometry = new THREE.TorusGeometry(100, 40, 40, 40, 6.28);
+material = new THREE.MeshNormalMaterial({shading: THREE.SmoothShading, side: THREE.DoubleSide, transparent: true, opacity: 0.81});
+mesh = new THREE.Mesh(geometry, material);
+mesh.scale.x = mesh.scale.y = mesh.scale.z = 1.8;
+mesh.position.y = 13.23;
+mesh.rotation.x = 3.88;
+mesh.rotation.y = 4.32;
+scene.add(mesh);
+
+wgeometry = new THREE.PlaneGeometry( 1000, 1000, 100, 100 );
+wmaterial = new THREE.MeshBasicMaterial( { color: 0x000000, wireframe: true, wireframeLinewidth: 1 } );
+wireplane = new THREE.Mesh( wgeometry, wmaterial );
+wireplane.scale.set( 1, 1, 1 );
+wireplane.rotation.x = - Math.PI / 2;
+scene.add( wireplane );
+
+scene.fog = new THREE.Fog( 0x6993d7, 8382.03, 5404.56 );
+
+
+			}
+
+			function draw() {
+
+				requestAnimationFrame( draw );
+				
+				// experiment with code from the snippets menu here
+				mesh.rotation.x = Date.now() * 0.0005;
+mesh.rotation.y = Date.now() * 0.0002;
+mesh.rotation.z = Date.now() * 0.001;
+camera.lookAt(mesh.position);
+mesh.position.y = Math.sin( Date.now() * 0.002 ) * 450;
+
+
+				renderer.render( scene, camera );
+
+			}
+
+			setup();
+			draw();
+
+		</script>
+		
+	</body>
+</html>
