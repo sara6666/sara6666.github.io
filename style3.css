@@ -26,7 +26,7 @@ header ul li {
 
 body {
 	background-size: cover;
-	background-image: ("C:/Users/Sara/Documents/Website/img/sky.jpg");
+	background-image: url("C:/Users/Sara/Documents/Website/img/sky.JPG");
 	text-align: center;
 }
 
