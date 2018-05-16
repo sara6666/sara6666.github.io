@@ -31,6 +31,7 @@ body {
 }
 
 .section1 {
+	padding: 10px;
 	width: 100%;
 	height: 50%;
 	color: #bccad6;
@@ -39,7 +40,7 @@ body {
 }
 
 .section2 {
-	color: #3e4444;
+	color: black;
 	font-family: arial;
     font-weight: 100;
     font-size: 150%;
@@ -52,6 +53,7 @@ img {
 }
 
 footer {
+	padding: 10px;
 	color: black;
 	font-family: calibri;
 	font-weight: 100;
